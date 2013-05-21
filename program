@@ -1,0 +1,18 @@
+x := 10
+y := new(3)
+free(y)
+y := new(3)
+x := [y]
+z := new(7)
+x := 20
+[z] := x
+if x = y
+  x := 7
+  y := 3 + 1
+  z := 4 * x
+else
+  x := x * y
+  z := z + 1
+fi
+free(y)
+y := 7

@@ -24,7 +24,7 @@ def texify exec_trace
     document_text += "\\end{frame}"
     document_text += "\n"
   end
-  document_text += "\\end{document}"
+  document_text
 end
 
 class Stage

@@ -1,0 +1,50 @@
+\documentclass{beamer}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{automata, arrows}
+\newcommand{\fg}{white}
+\newcommand{\bg}{black}
+\setbeamercolor{background canvas}{bg=\bg}
+\setbeamercolor{normal text}{fg=\fg}
+\tikzstyle{var}=[circle split, draw=\fg]
+\tikzstyle{hea}=[rectangle split, rectangle split parts=2, draw=\fg]
+\newcommand{\il}[1]{\texttt{#1}}
+\begin{document}
+\begin{frame}
+
+\begin{tikzpicture}[->,>=triangle 45,auto,semithick,node distance=2.0cm]
+\end{tikzpicture}
+
+Current command: \il{x := new(3)}
+\vspace{1cm}
+
+\begin{tikzpicture}[->,>=triangle 45,auto,semithick,node distance=2.0cm]
+  \node[var] (x)              {\il{x} \nodepart{lower} -1};
+  \node[hea] (-1) [below of=x] {\il{-1} \nodepart{second} 3};
+  \path (x) edge node {} (-1);
+\end{tikzpicture}
+\end{frame}
+\begin{frame}
+
+\begin{tikzpicture}[->,>=triangle 45,auto,semithick,node distance=2.0cm]
+  \node[var] (x)              {\il{x} \nodepart{lower} -1};
+  \node[hea] (-1) [below of=x] {\il{-1} \nodepart{second} 3};
+  \path (x) edge node {} (-1);
+\end{tikzpicture}
+
+Current command: \il{y := x}
+\vspace{1cm}
+
+\begin{tikzpicture}[->,>=triangle 45,auto,semithick,node distance=2.0cm]
+  \node[var] (x)              {\il{x} \nodepart{lower} -1};
+  \node[var] (y) [right of=x] {\il{y} \nodepart{lower} -1};
+  \node[hea] (-1) [below of=x] {\il{-1} \nodepart{second} 3};
+  \path (x) edge node {} (-1);
+  \path (y) edge node {} (-1);
+\end{tikzpicture}
+\end{frame}
+\begin{frame}
+
+Status of assertion $pointsto(x, 3) \& pointsto(y, 3) \ | pointsto(x, 3) * pointsto(y, 3) $: Trying to dispose of an empty heap\end{frame}
+
+\end{document}

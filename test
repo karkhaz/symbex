@@ -1,0 +1,1 @@
+verify([points_to(x,3),points_to(y,3)],[points_to(x,3)],[(x,-1),(y,-1)],[(-1,3)])
